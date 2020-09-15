@@ -16,4 +16,8 @@ export default {
 
 <style scoped>
 
+ul li {
+    list-style: none;
+}
+
 </style>

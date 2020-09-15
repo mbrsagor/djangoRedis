@@ -3,18 +3,21 @@
     <Sagor msg="Hey, I'm learning Vue JS"/>
     <h2>{{msg}}</h2>
     <Todos v-bind:todos="todos"/>
+    <TodoItem />
   </div>
 </template>
 
 <script>
 import Sagor from './components/Sagor.vue';
-import Todos from './components/Todos'
+import Todos from './components/Todos';
+import TodoItem from './components/TodoItem';
 
 export default {
   name: 'App',
   components: {
     Sagor,
-    Todos
+    Todos,
+    TodoItem
   },
   data(){
     return {
