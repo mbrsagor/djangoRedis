@@ -1,20 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Hey, I'm learning Vue JS"/>
     <Sagor msg="Hey, I'm learning Vue JS"/>
+    <h2>{{msg}}</h2>
+    <Todos v-bind:todos="todos"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 import Sagor from './components/Sagor.vue';
+import Todos from './components/Todos'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    Sagor
+    Sagor,
+    Todos
+  },
+  data(){
+    return {
+      msg: "I am freelancer...",
+      todos: [
+        {
+          id:1,
+          title: 'learning vue js',
+          is_learn: false
+        },
+        {
+          id:2,
+          title: 'learning react js',
+          is_learn: true
+        },
+        {
+          id:2,
+          title: 'learning angular js',
+          is_learn: true
+        },
+      ]
+    }
   }
 }
 </script>
