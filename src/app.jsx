@@ -4,7 +4,6 @@ import AboutMe from './components/about';
 import Clock from './components/clock';
 import Conditional from './components/conditional';
 import Lifting from './components/lifting';
-import Form from './components/lifting/form'
 
 class App extends Component {
 
@@ -13,7 +12,7 @@ class App extends Component {
             <div className="container">
                 <div className="row mb-3 mt-3">
                     <div className="col-md-4">
-                        <Form />
+                        
                     </div>
                     <div className="col-md-4">
                         <Lifting />
