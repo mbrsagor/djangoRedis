@@ -19,8 +19,11 @@ class Lifting extends Component {
     }
 
     submitHandler = event => {
-        const [name, password] = this.state
-        console.log(`name: ${name}\npassword: ${password}`);
+        console.log(`name: ${this.state.name}\npassword: ${this.state.password}`);
+        this.setState({
+            name: '',
+            password: ''
+        })
         event.preventDefault();
     }
 
