@@ -6,18 +6,21 @@ class Lifting extends Component {
         super(props);
         this.state = {
             name: '',
-            email: ''
+            password: ''
         };
-        // this.handleChange = this.handleChange.bind(this);
-        // this.submitHandler = this.submitHandler.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
-    handleChange = e => {
-        this.setState({name: e.target.value})
+    handleChange = event => {
+        this.setState({
+           [event.target.name] : event.target.value 
+        })
     }
 
     submitHandler = event => {
-        console.log({name: this.state.name});
+        const [name, password] = this.state
+        console.log(`name: ${name}\npassword: ${password}`);
         event.preventDefault();
     }
 
@@ -33,6 +36,17 @@ class Lifting extends Component {
                             id="name"
                             name="name"
                             value={this.state.name}
+                            onChange={this.handleChange} 
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Enter your email</label>
+                        <input type="password"
+                            className="form-control"
+                            placeholder="****************"
+                            id="password"
+                            name="password"
+                            value={this.state.password}
                             onChange={this.handleChange} 
                         />
                     </div>
