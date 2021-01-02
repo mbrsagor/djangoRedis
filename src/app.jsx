@@ -4,6 +4,8 @@ import AboutMe from './components/about';
 import Clock from './components/clock';
 import Conditional from './components/conditional';
 import Lifting from './components/lifting';
+// import HOC from './components/hoc';
+import HoverCounter from './components/hoc/hoverCounter';
 
 class App extends Component {
 
@@ -12,7 +14,10 @@ class App extends Component {
             <div className="container">
                 <div className="row mb-3 mt-3">
                     <div className="col-md-4">
-                        
+                        <HoverCounter />
+                    </div>
+                    <div className="col-md-4">
+                        {/* <HOC /> */}
                     </div>
                     <div className="col-md-4">
                         <Lifting />
