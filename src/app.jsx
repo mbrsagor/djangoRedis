@@ -6,6 +6,7 @@ import Conditional from './components/conditional';
 import Lifting from './components/lifting';
 // import HOC from './components/hoc';
 import HoverCounter from './components/hoc/hoverCounter';
+import PerformOptimization from './components/po';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
                     </div>
                     <div className="col-md-4">
                         {/* <HOC /> */}
+                        <PerformOptimization />
                     </div>
                     <div className="col-md-4">
                         <Lifting />
