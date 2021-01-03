@@ -7,16 +7,16 @@ class PerformOptimization extends Component {
         this.state = {count: 1}
     }
     
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     if (this.props.color !== nextProps.color) {
-    //         return true
-    //     }
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.color !== nextProps.color) {
+            return true
+        }
 
-    //     if(this.state.count !== nextState.count) {
-    //         return true
-    //     }
-    //     return false;
-    // }
+        if(this.state.count !== nextState.count) {
+            return true
+        }
+        return false;
+    }
 
     render() {
         return (
