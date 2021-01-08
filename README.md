@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> The repo basically `React.JS` simple random example for all every topic.
 
 ## Available Scripts
 
@@ -15,7 +15,7 @@ You will also see any lint errors in the console.
 #### `React Reducer` simple example
 
 ```javascript
-import React, {useState, useReducer} from 'react';
+import React, {useReducer} from 'react';
 
 
 const initalData = 0;
