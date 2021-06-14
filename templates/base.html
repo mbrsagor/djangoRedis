@@ -20,6 +20,18 @@
                 </div>
             </div>
         </nav>
+        <div class="navbar-end pr-2">
+          <div class="navbar-item">
+            <div class="buttons">
+                <AmpContent>
+                  <a class="button is-primary" href="auth/logout/">Logout</a>
+                </AmpContent>
+                <NonAmpContent>
+                      <a class="button is-primary" href="auth/login/auth0">Login</a>
+                </NonAmpContent>
+            </div>
+          </div>
+        </div>
         <div class="hero-body">
             <div class="container has-text-centered">
                 <p class="title">{% block main_title %}{% endblock %}</p>
