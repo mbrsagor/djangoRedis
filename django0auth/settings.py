@@ -41,7 +41,11 @@ LOCAL_APP = [
     'feedapp',
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + LOCAL_APP
+THIRD_PARTY_APP = [
+    'social_django',
+]
+
+INSTALLED_APPS = DEFAULT_APPS + LOCAL_APP + THIRD_PARTY_APP
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,3 +130,23 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'feedapp.User'
+
+# Auth0 settings
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = '<YOUR-AUTH0-DOMAIN>'
+SOCIAL_AUTH_AUTH0_KEY = '<YOUR-AUTH0-CLIENT-ID>'
+SOCIAL_AUTH_AUTH0_SECRET = '<YOUR-AUTH0-CLIENT-SECRET>'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+AUTHENTICATION_BACKENDS = {
+    'social_core.backends.auth0.Auth0OAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+}
+
+LOGIN_URL = '/login/auth0'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

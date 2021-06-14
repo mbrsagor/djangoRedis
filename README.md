@@ -20,3 +20,5 @@ source venv/bin/activate
 ./manage.py migrate
 ./manage.py runserver
 ```
+
+https://auth0.com/blog/django-authentication/
