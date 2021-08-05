@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,13 +19,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+env = environ.Env(
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(list),
+)
+
+envfile_path = os.path.join(BASE_DIR, '.env')
+environ.Env.read_env(envfile_path)
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2qegn%75sh91v6czev$p7l%(das5xu4^0322y2#ju!lqt%2)29'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -132,21 +141,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'feedapp.User'
 
 # Auth0 settings
-SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
-SOCIAL_AUTH_AUTH0_DOMAIN = '<YOUR-AUTH0-DOMAIN>'
-SOCIAL_AUTH_AUTH0_KEY = '<YOUR-AUTH0-CLIENT-ID>'
-SOCIAL_AUTH_AUTH0_SECRET = '<YOUR-AUTH0-CLIENT-SECRET>'
-SOCIAL_AUTH_AUTH0_SCOPE = [
-    'openid',
-    'profile',
-    'email'
-]
+SOCIAL_AUTH_TRAILING_SLASH = env('SOCIAL_AUTH_TRAILING_SLASH')  # Remove trailing slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = env('SOCIAL_AUTH_AUTH0_DOMAIN')
+SOCIAL_AUTH_AUTH0_KEY = env('SOCIAL_AUTH_AUTH0_KEY')
+SOCIAL_AUTH_AUTH0_SECRET = env('SOCIAL_AUTH_AUTH0_SECRET')
+SOCIAL_AUTH_AUTH0_SCOPE = env('SOCIAL_AUTH_AUTH0_SCOPE')
 
 AUTHENTICATION_BACKENDS = {
     'social_core.backends.auth0.Auth0OAuth2',
     'django.contrib.auth.backends.ModelBackend'
 }
 
-LOGIN_URL = '/login/auth0'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+# Login URL
+LOGIN_URL = env('LOGIN_URL')
+LOGIN_REDIRECT_URL = env('LOGIN_REDIRECT_URL')
+LOGOUT_REDIRECT_URL = env('LOGOUT_REDIRECT_URL')
