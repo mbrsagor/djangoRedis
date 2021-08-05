@@ -17,6 +17,11 @@ git clone https://github.com/mbrsagor/django-0auth.git
 cd django-0auth
 virtualenv venv --python=python3.8
 source venv/bin/activate
+```
+Then create `.env` file and paste code from `example.env` file and add validate information.
+###### After that run the server in development or production environment
+
+```bash
 ./manage.py migrate
 ./manage.py runserver
 ```
