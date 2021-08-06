@@ -10,4 +10,5 @@ urlpatterns = [
     path('post/delete/<int:pk>/', views.PostAPIView.as_view()),
     # Report api endpoint
     path('report/', views.ReportAPIView.as_view()),
+    path('report/delete/<int:pk>/', views.ReportAPIView.as_view()),
 ]

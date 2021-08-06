@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from rest_framework import views, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Post, Report
 from .serializers import PostSerializer, ReportSerializer
 from .utils import post_validation_service, report_validation_service
+from .permissions import PermissionHelperMixin
 from .custom_response import *
 
 
@@ -68,6 +70,14 @@ class PostAPIView(views.APIView):
 
 # Report API View
 class ReportAPIView(views.APIView):
+    permission_classes = [IsAuthenticated, ]
+
+    def get_object(self, pk):
+        try:
+            return Report.objects.filter(id=pk).first()
+        except Report.DoesNotExist:
+            return None
+
     def get(self, request):
         report = Report.objects.all()
         serializer = ReportSerializer(report, data=request.data)
@@ -82,3 +92,11 @@ class ReportAPIView(views.APIView):
             serializer.save()
             return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def delete(self, request, pk):
+        report = self.get_object(pk)
+        if report is not None:
+            report.delete()
+            return Response(prepare_success_response("Data deleted successfully"), status=status.HTTP_200_OK)
+        else:
+            return Response(prepare_error_response("Content Not found"), status=status.HTTP_400_BAD_REQUEST)
