@@ -16,6 +16,7 @@ def reports(request):
     return render(request, 'feedapp/reports.html')
 
 
+# Report API View
 class PostAPIView(views.APIView):
 
     def get_object(self, pk):
@@ -65,6 +66,7 @@ class PostAPIView(views.APIView):
             return Response(prepare_error_response("Content Not found"), status=status.HTTP_400_BAD_REQUEST)
 
 
+# Report API View
 class ReportAPIView(views.APIView):
     def get(self, request):
         report = Report.objects.all()

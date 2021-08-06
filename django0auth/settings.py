@@ -138,6 +138,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Custom user
 AUTH_USER_MODEL = 'feedapp.User'
 
 # Auth0 settings

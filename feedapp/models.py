@@ -17,7 +17,7 @@ class Post(models.Model):
                                   related_name='mod_who_hid')
 
     def __str__(self):
-        return self.text[:30]
+        return f"User Id:{self.user_id} Context: {self.text[:20]}"
 
 
 class Report(models.Model):
