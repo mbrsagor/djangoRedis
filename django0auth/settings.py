@@ -46,12 +46,18 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APP = [
+# Project apps
+PROJECT_APPS = [
+    'user'
+]
+
+# Install libraries apps
+LIBRARY_APPS = [
     'social_django',
     'rest_framework',
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APP
+INSTALLED_APPS = DEFAULT_APPS + PROJECT_APPS + LIBRARY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
