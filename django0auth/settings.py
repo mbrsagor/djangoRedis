@@ -46,16 +46,12 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APP = [
-    'feedapp',
-]
-
 THIRD_PARTY_APP = [
     'social_django',
     'rest_framework',
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + LOCAL_APP + THIRD_PARTY_APP
+INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APP
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,9 +133,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Custom user
-AUTH_USER_MODEL = 'feedapp.User'
 
 # Auth0 settings
 SOCIAL_AUTH_TRAILING_SLASH = env('SOCIAL_AUTH_TRAILING_SLASH')  # Remove trailing slash from routes
