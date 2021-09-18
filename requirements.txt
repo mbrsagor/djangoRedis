@@ -9,10 +9,13 @@ Django==3.2.4
 django-environ==0.4.5
 django-oauth-toolkit==1.5.0
 djangorestframework==3.12.4
+djangorestframework-simplejwt==4.6.0
 ecdsa==0.17.0
 idna==2.10
 jwcrypto==1.0
 oauthlib==3.1.1
+Pillow==8.3.2
+psycopg2-binary==2.8.6
 pyasn1==0.4.8
 pycparser==2.20
 PyJWT==2.1.0
@@ -28,5 +31,3 @@ social-auth-core==4.1.0
 sqlparse==0.4.1
 urllib3==1.26.5
 wrapt==1.12.1
-psycopg2-binary==2.8.6
-djangorestframework-simplejwt==4.6.0

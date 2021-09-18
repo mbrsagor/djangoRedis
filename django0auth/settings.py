@@ -49,7 +49,8 @@ DEFAULT_APPS = [
 
 # Project apps
 PROJECT_APPS = [
-    'user'
+    'listing',
+    'user',
 ]
 
 # Install libraries apps
@@ -110,13 +111,13 @@ DATABASES = {
     },
     'listing': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "listing_listing",
+        'NAME': "listing",
         'USER': "mbr-sagor",
         'PASSWORD': "123456",
     },
 }
 
-DATABASE_ROUTERS = ['user.router.AuthRouter', ]
+DATABASE_ROUTERS = ['user.router.AuthRouter', 'listing.router.ListingRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
