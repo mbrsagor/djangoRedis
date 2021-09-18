@@ -25,4 +25,23 @@ Then create `.env` file and paste code from `example.env` file and add validate 
 ./manage.py runserver
 ```
 
-https://auth0.com/blog/django-authentication/
+###### Multiple database configurations:
+```python
+DATABASES = {
+    'default': {},
+    'users': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "users_mydb",
+        'USER': "mbr-sagor",
+        'PASSWORD': "123456",
+    },
+    'listing': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "users_mydb",
+        'USER': "mbr-sagor",
+        'PASSWORD': "123456",
+    },
+    'HOST': "localhost",
+    'PORT': 5432,
+}
+```

@@ -28,3 +28,5 @@ social-auth-core==4.1.0
 sqlparse==0.4.1
 urllib3==1.26.5
 wrapt==1.12.1
+psycopg2-binary==2.8.6
+djangorestframework-simplejwt==4.6.0

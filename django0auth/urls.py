@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework_simplejwt import views as jwt_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('user.urls')),
     path('auth/', include('social_django.urls')),
+    path('api/v2/token/', jwt_views.TokenObtainPairView.as_view()),
+    path('api/v2/token/refresh/', jwt_views.TokenRefreshView.as_view()),
+    path('api/v2/token/verify/', jwt_views.TokenVerifyView.as_view()),
 ]
