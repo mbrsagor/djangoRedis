@@ -104,7 +104,7 @@ DATABASES = {
     'default': {},
     'users': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "users_mydb",
+        'NAME': "users",
         'USER': "mbr-sagor",
         'PASSWORD': "123456",
     },
@@ -114,9 +114,9 @@ DATABASES = {
         'USER': "mbr-sagor",
         'PASSWORD': "123456",
     },
-    'HOST': "localhost",
-    'PORT': 5432,
 }
+
+DATABASE_ROUTERS = ['user.router.AuthRouter', ]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -194,8 +194,3 @@ AUTHENTICATION_BACKENDS = {
     'social_core.backends.auth0.Auth0OAuth2',
     'django.contrib.auth.backends.ModelBackend'
 }
-
-# Login URL
-LOGIN_URL = env('LOGIN_URL')
-LOGIN_REDIRECT_URL = env('LOGIN_REDIRECT_URL')
-LOGOUT_REDIRECT_URL = env('LOGOUT_REDIRECT_URL')

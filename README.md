@@ -7,7 +7,7 @@
 ###### Prerequisites
 
 - Python 3.8.5
-- Django Rest Framework
+- Psql 13.0
 
 The following steps will walk you thru installation on a Mac. I think linux should be similar. It's also possible to develop on a Windows machine, but I have not documented the steps. If you've developed django apps on Windows, you should have little problem getting up and running.
 
@@ -19,11 +19,6 @@ source venv/bin/activate
 ```
 Then create `.env` file and paste code from `example.env` file and add validate information.
 ###### After that run the server in development or production environment
-
-```bash
-./manage.py migrate
-./manage.py runserver
-```
 
 ###### Multiple database configurations:
 ```python
@@ -44,4 +39,10 @@ DATABASES = {
     'HOST': "localhost",
     'PORT': 5432,
 }
+```
+
+##### Migrate User database related commands:
+```bash
+./manage.py migrate user --database=users
+./manage.py createsuperuser --database=users
 ```
