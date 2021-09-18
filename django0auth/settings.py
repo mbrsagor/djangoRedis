@@ -180,6 +180,9 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
+# Custom user model
+AUTH_USER_MODEL = 'user.UserAccount'
+
 # Auth0 settings
 SOCIAL_AUTH_TRAILING_SLASH = env('SOCIAL_AUTH_TRAILING_SLASH')  # Remove trailing slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = env('SOCIAL_AUTH_AUTH0_DOMAIN')
