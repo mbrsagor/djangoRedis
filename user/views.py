@@ -5,6 +5,7 @@ from .serializer import UserAccountSerializer
 from .models import UserAccount
 
 
+# User custom registration
 class UserRegisterView(views.APIView):
     permission_classes = [permissions.AllowAny, ]
 

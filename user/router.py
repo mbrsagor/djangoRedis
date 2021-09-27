@@ -12,7 +12,7 @@ class AuthRouter(object):
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
-        if obj1._meta.app_label in self.route_app_labels or  obj2._meta.app_label in self.route_app_labels:
+        if obj1._meta.app_label in self.route_app_labels or obj2._meta.app_label in self.route_app_labels:
             return True
         return None
 

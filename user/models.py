@@ -46,3 +46,13 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"Name:{self.name}  Email:{self.email}"
+
+
+class Role(models.Model):
+    name = models.CharField(max_length=70)
+    user = models.ForeignKey(UserAccount, related_name='userRole', on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
