@@ -94,30 +94,25 @@ WSGI_APPLICATION = 'django0auth.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {},
     'users': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "users",
-        'USER': "mbr-sagor",
-        'PASSWORD': "123456",
-    },
-    'listing': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "listing",
-        'USER': "mbr-sagor",
-        'PASSWORD': "123456",
-    },
+        'NAME': env("DB_NAME"),
+        'HOST': env("DB_HOST"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+    }
+    ,
+    # 'listing': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': "listing",
+    #     'USER': "mbr-sagor",
+    #     'PASSWORD': "123456",
+    # },
 }
 
-DATABASE_ROUTERS = ['user.router.AuthRouter', 'listing.router.ListingRouter']
+# DATABASE_ROUTERS = ['user.router.AuthRouter', 'listing.router.ListingRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -196,3 +191,5 @@ AUTHENTICATION_BACKENDS = {
     'social_core.backends.auth0.Auth0OAuth2',
     'django.contrib.auth.backends.ModelBackend'
 }
+
+# https://www.youtube.com/watch?v=N5x1wugptUM&list=PLJRGQoqpRwdfgaQujSZMzrG7AkRlbjRkC&index=6
