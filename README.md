@@ -39,3 +39,17 @@ CACHES = {
     }
 }
 ```
+
+
+##### Open Redis CLI: ```redis-cli```
+> Input:      
+```redis-cli   
+127.0.0.1:6379> set a 100
+OK
+```
+> Output:
+```redis-cli 
+127.0.0.1:6379> get a
+"100"
+127.0.0.1:6379> 
+```
