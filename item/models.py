@@ -14,6 +14,15 @@ class Category(DomainEntity):
     def __str__(self):
         return self.name[:30]
 
+    class Meta:
+        ordering = ['-id']
+
+    def get_children(self):
+        return Category.objects.filter(parent=self)
+
+    def children_count(self):
+        return Category.objects.filter(parent=self).count()
+
 
 class Tag(DomainEntity):
     name = models.CharField(max_length=120)

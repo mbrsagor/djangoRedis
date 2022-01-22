@@ -137,6 +137,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure as cache backend
+
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
