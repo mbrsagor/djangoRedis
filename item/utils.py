@@ -1,7 +1,8 @@
 import redis
 import json
+from django.conf import settings
 
-rds = redis.StrictRedis(port=6379, db=0)
+rds = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=0)
 
 
 class Res(object):
